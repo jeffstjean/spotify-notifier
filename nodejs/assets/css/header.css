@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #1db954;
+}
+
+.icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#title {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.artists-list-container {
+  padding-top: 60px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+@media (max-width: 576px) {
+  .artists-list-container {
+    padding-top: 150px;
+  }
+}

@@ -1,0 +1,54 @@
+<div class="mt-0 mb-2">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <a class="navbar-brand" href="#">ARTISTS YOU FOLLOW</a>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-left align-self-start">
+        <div class="form-group">
+          <input class="form-control-sm mr-sm-2" type="text" placeholder="Search Artists" aria-label="Search">
+        </div>
+      </div>
+      <div class="col text-right align-self-end">
+        <div class="form-group">
+          <button type="button" class="btn btn-outline-secondary btn-sm">Update Alerts</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-7 text-center px-0">
+    <p><b>Artist</b></p>
+  </div>
+  <div class="col-3 text-left px-0">
+    <p><b>Last Activity</b></p>
+  </div>
+  <div class="col-2 text-center px-0">
+    <p><b>Alert?</b></p>
+  </div>
+</div>
+<div class="pre-scrollable artists-follow-list">
+  <% for (i = 0; i < artists.length; i++) {%>
+  <div class="row my-4">
+    <div class="col-2 text-center my-auto px-1">
+      <img height="48" width="48" src="<%= artists[i].url %>" class="img-fluid" alt="">
+    </div>
+    <div class="col-5 text-center my-auto px-1">
+      <h6><%= artists[i].name %></h6>
+    </div>
+    <div class="col-3 text-center my-auto px-1">
+      <h6><%= artists[i].lastUpdate.substring(0, 10) %></h6>
+    </div>
+    <div class="col-2 text-center my-auto px-1 pl-4   pb-4">
+      <% if(artists[i].alert === true) {%>
+      <input type="checkbox" class="form-check-input" checked>
+      <%} else {%>
+      <input type="checkbox" class="form-check-input">
+      <%}%>
+    </div>
+  </div>
+  <% } %>
+    </div>

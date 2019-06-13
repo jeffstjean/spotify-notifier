@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <% include ../partials/HTMLhead %>
+  <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2&display=swap">
+  <script src="assets/js/artist-search.js"></script>
+  <title>Spotify Notifier</title>
+
+</head>
+
+<body>
+  <% include ../partials/header %>
+
+  <div class="container px-0">
+    <div class="row mx-0 justify-content-center">
+      <div class="col-md-5">
+        <% include ../partials/artists-follow %>
+      </div>
+      <div class="col-md-5 offset-1" id="artists-recent">
+        <% include ../partials/artists-follow %>
+      </div>
+    </div>
+  </div>
+  <script>
+  function search() {
+    console.log('typing');
+  }
+  </script>
+  <% include ../partials/footer %>
+</body>
+
+</html>
