@@ -1,0 +1,4 @@
+.env
+nodejs/node_modules
+.DS_Store
+nodejs/coverage
