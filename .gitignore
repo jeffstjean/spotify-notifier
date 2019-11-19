@@ -1,4 +1,4 @@
 .env
-nodejs/node_modules
+api/node_modules
 .DS_Store
-nodejs/coverage
+api/coverage

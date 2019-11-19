@@ -11,7 +11,7 @@ const artistRoutes = require('./artists');
 
 // -------------------- GET --------------------- //
 router.get('/', (req, res, next) => {
-  User.find({}, '-__v -artists')
+  User.find({}, '_id display_name spotify_id email_address')
   .exec()
   .then(docs => {
     const response = {
@@ -70,30 +70,10 @@ router.get('/:userId', (req, res, next) => {
 });
 // ---------------------------------------------- //
 
-// ----------------- GET BY S_ID ---------------- //
-router.get('/spotifyId/:id', (req, res, next) => {
-  const id = req.params.id;
-  console.log({ spotify_data: {id: id} });
-  User.findOne({ 'spotify_data.id': id}, '-__v')
-  .exec()
-  .then(doc => {
-    if(doc) {
-      res.status(200).json(doc);
-    }
-    else {
-      res.status(404).json({message: 'Cannot get user: ID does not exist'});
-    }
-  })
-  .catch(err => {
-    res.status(500).json({message: 'Cannot get user: Invalid ID format'});
-  });
-});
-// ---------------------------------------------- //
-
 // -------------------- PATCH ------------------- //
 
 // parameters must be contained in the body like such:
-// { "spotify_data.display_name": "name", "contact_info.email.email_address": "test@test.ca" }
+// { "display_name": "name", "email_address": "test@test.ca" }
 
 router.patch('/:userId', (req, res, next) => {
   const id = req.params.userId;
@@ -145,10 +125,10 @@ router.delete('/:userId', (req, res, next) => {
 // ---------------------------------------------- //
 
 // ------------------- ARTISTS ------------------ //
-router.use('/:userId/artists', (req, res, next) => { // forward artists requests on to artists.js
-  req.userId = req.params.userId; // BUT attach the userID to the req so we can access on other side
-  next();
-}, artistRoutes);
+// router.use('/:userId/artists', (req, res, next) => { // forward artists requests on to artists.js
+//   req.userId = req.params.userId; // BUT attach the userID to the req so we can access on other side
+//   next();
+// }, artistRoutes);
 // ---------------------------------------------- //
 
 module.exports = router;
