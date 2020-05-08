@@ -1,0 +1,15 @@
+FROM node:10-alpine
+
+WORKDIR /app/backend
+
+COPY backend/package*.json ./
+
+USER root
+
+RUN npm install
+
+COPY ./backend .
+
+EXPOSE 5000
+
+CMD npm run start

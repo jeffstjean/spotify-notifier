@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backend:
+    env_file: .env
+    working_dir: /app/backend
+    volumes:
+      - .:/app
+    container_name: 'sn-nodejs-dev'
+    environment:
+      - NODE_ENV=DEVELOPMENT
+    ports:
+      - '5000:${NODE_PORT}'
+    restart: unless-stopped
+    command: node_modules/.bin/nodemon server
+    image: node:alpine

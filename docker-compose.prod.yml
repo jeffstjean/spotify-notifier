@@ -1,0 +1,28 @@
+version: '3'
+services:
+  backend:
+    env_file: .env
+    working_dir: /app/backend
+    volumes:
+      - .:/app
+    container_name: 'sn-nodejs-prod'
+    environment:
+      - NODE_ENV=PRODUCTION
+    ports:
+      - '5000:${NODE_PORT}'
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+
+  frontend:
+    env_file: .env
+    working_dir: /app/frontend
+    container_name: 'sn-react-prod'
+    ports:
+      - '80:${REACT_PORT}'
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.react
+    
