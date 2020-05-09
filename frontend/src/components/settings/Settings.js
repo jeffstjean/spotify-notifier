@@ -30,7 +30,7 @@ const Settings = (props) => {
             options.phone.in_use = (phone !== '')
         }
         console.log(options)
-        if(!is_empty(options)) axios.put('http://localhost:5000/settings', options, { withCredentials: true })
+        if(!is_empty(options)) axios.put(`${process.env.REACT_APP_BACKEND}/settings`, options, { withCredentials: true })
             .then(result => {
                 setTimeout(() => {
                 props.update_dashboard();
