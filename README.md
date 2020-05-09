@@ -2,6 +2,12 @@
 
 A NodeJs + Express + React + MongoDB powered website for receiving real-time notifications from artist's newest releases on [Spotify](https://www.spotify.com/).
 
+<p align="center">
+  <img height="600" src="/images/dashboard.png">
+  <img height="600" src="/images/search.png">
+  <img height="600" src="/images/following.png">
+</p>
+
 ## Running Locally [WIP]
 
 Make sure you have [Node.js](http://nodejs.org/) and [Docker](https://www.docker.com/) installed.
