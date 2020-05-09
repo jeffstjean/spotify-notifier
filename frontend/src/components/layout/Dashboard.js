@@ -11,7 +11,7 @@ const Dashboard = (props) => {
   
   const update_user = () => {
     console.log('UPDATE');
-    axios.get('http://localhost:5000/settings', { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_BACKEND}/settings`, { withCredentials: true })
       .then(result => {
         set_user(result.data)
         set_email(result.data.email)

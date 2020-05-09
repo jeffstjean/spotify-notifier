@@ -13,7 +13,7 @@ export class Search extends Component {
   }
   
   componentDidMount() {
-    axios.get('http://localhost:5000/settings/artists', { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_BACKEND}/settings/artists`, { withCredentials: true })
       .then(result => {
         this.setState({ artist_list: result.data , is_loading: false });
       })

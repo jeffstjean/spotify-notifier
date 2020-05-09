@@ -11,7 +11,7 @@ const SearchArtists = (props) => {
             props.on_change([]);
             return;
         }
-        axios.get(`http://localhost:5000/search?type=artist&limit=4&q=${search_term}`)
+        axios.get(`${process.env.REACT_APP_BACKEND}/search?type=artist&limit=4&q=${search_term}`)
             .then(result => {
                 props.set_loading(false);
                 if(result.data.items.length === 0) {

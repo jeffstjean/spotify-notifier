@@ -16,12 +16,12 @@ class Artist extends React.Component {
   follow_artist = () => {
     const { artist } = this.props
     if(this.state.btn_text==='Follow') {
-      axios.put(`http://localhost:5000/follow`, { spotify_id: artist.id }, { withCredentials: true })
+      axios.put(`${process.env.REACT_APP_BACKEND}/follow`, { spotify_id: artist.id }, { withCredentials: true })
         .then(result => { this.setState({ btn_class: 'btn btn-success btn-block', btn_text: 'Unfollow' }); })
         .catch((e) => { console.log(e) })
     }
     else {
-      axios.post(`http://localhost:5000/follow`, { spotify_id: artist.id }, { withCredentials: true })
+      axios.post(`${process.env.REACT_APP_BACKEND}/follow`, { spotify_id: artist.id }, { withCredentials: true })
         .then(result => { this.setState({ btn_class: 'btn btn-secondary btn-block', btn_text: 'Follow' }); })
         .catch((e) => { console.log(e) })
     }

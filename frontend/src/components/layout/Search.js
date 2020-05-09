@@ -21,7 +21,7 @@ export class Search extends Component {
   }
   
   componentDidMount() {
-    axios.get('http://localhost:5000/top?limit=4')
+    axios.get(`${process.env.REACT_APP_BACKEND}/top?limit=4`)
       .then(result => {
         this.setState({ top: result.data, artist_list: result.data , is_loading: false });
       })

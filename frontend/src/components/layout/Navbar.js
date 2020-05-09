@@ -33,7 +33,7 @@ class Navbar extends Component {
             {!is_user && (
               <React.Fragment>
                 <button className="nav-item nav-link link-button" onClick={() => {
-                  window.location.replace(`http://localhost:5000/login?origin=${encodeURI(window.location.href)}`);
+                  window.location.replace(`${process.env.REACT_APP_BACKEND}/login?origin=${encodeURI(window.location.href)}`);
                 }}>Connect Spotify</button>
               </React.Fragment>
             )}
